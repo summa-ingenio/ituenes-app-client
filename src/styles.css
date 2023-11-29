@@ -1,0 +1,81 @@
+/* All the CSS */
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #007bff;
+}
+
+input[type="text"] {
+  width: 70%;
+  padding: 0.5rem;
+  margin-right: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+button.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid #007bff;
+}
+
+button.btn-primary:hover {
+  background-color: #0056b3;
+  border: 1px solid #0056b3;
+}
+
+button.btn-success {
+  background-color: #28a745;
+  color: #fff;
+  border: 1px solid #28a745;
+}
+
+button.btn-success:hover {
+  background-color: #218838;
+  border: 1px solid #218838;
+}
+
+button.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  border: 1px solid #dc3545;
+}
+
+button.btn-danger:hover {
+  background-color: #c82333;
+  border: 1px solid #c82333;
+}
+
+.list-group-item {
+  margin-top: 1rem;
+}
+
+/* Optional: Add box shadow to the search results and favorites containers */
+.search-results,
+.favorites {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 4px;
+}
