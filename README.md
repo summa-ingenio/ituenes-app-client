@@ -4,6 +4,8 @@
 
 Allowing the user to search through the Itunes Database to return song names.
 
+_PLEASE NOTE THE MUSIC OPTIONS NO LONGER WORKS AS THEY HAVE MOVED THEIR API TO APPLE MUSIC_
+
 ## Table of Contents
 
 - [How to Use the App](#how-to-use-the-app)
