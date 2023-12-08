@@ -79,24 +79,29 @@ function App() {
         </button>
       </div>
       <div className="search-results">
-        <h2>Search Results</h2>
-        <ul className="list-group">
-          {results.map((item) => (
-            <li
-              key={item.trackId}
-              className="list-group-item d-flex justify-content-between align-items-center"
-            >
-              {item.trackName}
-              <button
-                className="btn btn-success"
-                onClick={() => addToFavorites(item)}
-              >
-                Add to Favorites
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
+  <h2>Search Results</h2>
+  {Array.isArray(results) && results.length > 0 ? (
+    <ul className="list-group">
+      {results.map((item) => (
+        <li
+          key={item.trackId}
+          className="list-group-item d-flex justify-content-between align-items-center"
+        >
+          {item.trackName}
+          <button
+            className="btn btn-success"
+            onClick={() => addToFavorites(item)}
+          >
+            Add to Favorites
+          </button>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>No results found</p>
+  )}
+</div>
+
       <div className="favorites">
         <h2>Favorites</h2>
         <ul className="list-group">
