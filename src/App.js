@@ -9,26 +9,36 @@ function App() {
   const [favorites, setFavorites] = useState([]);
 
   const search = async () => {
-    try {
-      const response = await fetch(
-        `https://itunes-app-sever-66f04d5c397b.herokuapp.com/api/search?term=${term}&media=${media}`,
-        { mode: "cors" }
+  try {
+    const response = await fetch(
+      `https://itunes-app-sever-66f04d5c397b.herokuapp.com/api/search?term=${term}&media=${media}`,
+      { mode: "cors" }
+    );
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(
+        `HTTP error! Status: ${response.status}, Message: ${errorData.message}`
       );
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(
-          `HTTP error! Status: ${response.status}, Message: ${errorData.message}`
-        );
-      }
-
-      const data = await response.json();
-      console.log(data);
-      setResults(data.results);
-    } catch (error) {
-      console.error(error);
     }
-  };
+
+    const data = await response.json();
+    console.log(data);
+
+    // Check if 'results' is an array before setting it
+    if (Array.isArray(data.results)) {
+      setResults(data.results);
+    } else {
+      console.error("Invalid API response format - 'results' is not an array");
+      setResults([]);
+    }
+  } catch (error) {
+    console.error(error);
+    // You might want to set an empty array for 'results' in case of an error
+    setResults([]);
+  }
+};
+
 
   const addToFavorites = (item) => {
     setFavorites((prevFavorites) => [...prevFavorites, item]);
