@@ -25,8 +25,8 @@ function App() {
     const data = await response.json();
     console.log(data);
 
-    // Check if 'results' is an array before setting it
-    if (Array.isArray(data.results)) {
+    // Check if 'results' exists and is an array before setting it
+    if (data.results && Array.isArray(data.results)) {
       setResults(data.results);
     } else {
       console.error("Invalid API response format - 'results' is not an array");
@@ -38,6 +38,7 @@ function App() {
     setResults([]);
   }
 };
+
 
 
   const addToFavorites = (item) => {
