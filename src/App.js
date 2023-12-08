@@ -25,11 +25,12 @@ function App() {
     const data = await response.json();
     console.log(data);
 
-    // Check if 'results' exists and is an array before setting it
+    // Check the structure of the response
     if (data.results && Array.isArray(data.results)) {
       setResults(data.results);
     } else {
       console.error("Invalid API response format - 'results' is not an array");
+      console.log("Complete response:", data); // Log the complete response
       setResults([]);
     }
   } catch (error) {
@@ -38,6 +39,7 @@ function App() {
     setResults([]);
   }
 };
+
 
 
 
