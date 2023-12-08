@@ -11,7 +11,7 @@ function App() {
   const search = async () => {
   try {
     const response = await fetch(
-      `https://itunes-app-sever-66f04d5c397b.herokuapp.com/api/search?term=${term}&media=${media}`,
+      `https://itunes-app-sever-66f04d5c397b.herokuapp.com/api/search?term=${term}&entity=${media}`, // Use 'entity' instead of 'media'
       { mode: "cors" }
     );
 
@@ -25,20 +25,21 @@ function App() {
     const data = await response.json();
     console.log(data);
 
-    // Check the structure of the response
-    if (data.results && Array.isArray(data.results)) {
+    // Check if 'results' is an array before setting it
+    if (Array.isArray(data.results)) {
       setResults(data.results);
     } else {
       console.error("Invalid API response format - 'results' is not an array");
-      console.log("Complete response:", data); // Log the complete response
       setResults([]);
     }
   } catch (error) {
     console.error(error);
+    console.log("Complete response on error:", error.response); // Log the complete response on error
     // You might want to set an empty array for 'results' in case of an error
     setResults([]);
   }
 };
+
 
 
 
